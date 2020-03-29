@@ -94,6 +94,24 @@ end;
 
 /
 
+--continue 문 : 보조제어문(11g부터 추가된 기능)
 
+declare
+    tot number :=0;
+begin
+    for i in 1..10 loop
+        tot := tot+1;
+        dbms_output.put_line ('tot : ' || tot );
+        
+        continue when (i>5); -- i가 5이상이면 아래 실행문을 실행하지않고 위로 올라간다
+        tot := tot+i;
+        dbms_output.put_line ('tot2 : ' || tot );
+        
+
+    end loop;
+
+end;
+
+/
 
 
