@@ -15,7 +15,6 @@ declare
 begin
     -- 명시적 커서 오픈
     open cu1;
-    dbms_output.put_line (cnt);
     dbms_output.put_line ('사번   이름  급여');
     
     loop
@@ -26,9 +25,9 @@ begin
     exit when cu1%notFound; 
    dbms_output.put_line (emp_id ||' '||emp_name || ' ' || emp_salary );
 
-    
     end loop;
-    
+    cnt := cu1%rowcount;
+    dbms_output.put_line ('cnt : '||cnt);
     -- 커서 닫기
     close cu1;
     
