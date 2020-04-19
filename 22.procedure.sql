@@ -71,14 +71,23 @@ begin
     dbms_output.put_line(emp_name || '사원의 급여는 ' || salary ||'입니다' );   
     
 end;
-
 /
 
+-- out모드_2
+-- variable : 변수를 선언하기위한 키워드 (바인드변수)
+-- out 모드 파라미터에 매칭되는 매개변수는 앞에 : 를 붙여준다
+variable emp_name varchar2(10)
+variable salary number
+execute emp_info(124, :emp_name, :salary); 
 
+print emp_name salary;
 
-
-
-
-
-
-
+-- 연산자 => 를 이용하여 파라미터의 값을 지정
+declare 
+    emp_name employees.last_name%type;
+    salary employees.salary%type;
+begin
+    emp_info(emp_id=> 124 , emp_name => emp_name, emp_salary => salary);
+    dbms_output.put_line(emp_name || '사원의 급여는 ' || salary ||'입니다' );       
+end;
+/
