@@ -31,6 +31,7 @@ end;
 select cnt_member(50) from employees;
 select DISTINCT cnt_member(50) from employees;
 select count(*) from employees where department_id = 50;
+select * from employees where department_id = 50;
 
 select DISTINCT department_id, cnt_member(department_id) from employees order by department_id;
 
